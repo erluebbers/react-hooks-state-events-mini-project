@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import Task from "./Task"
+import { v4 as uuid } from "uuid";
 
-function TaskList() {
+
+function TaskList( {tasks} ) {
+  const [updatedTasks, setUpdatedTasks] = useState(tasks)
+
+  function handleDelete(text) {
+    const formData = tasks.filter(task => task.text !== text)
+    setUpdatedTasks(formData)
+    
+  }
+
   return (
     <div className="tasks">
-      {/* display a list of tasks using Task component */}
+      {updatedTasks.map((task) => (
+        <Task text={task.text} category={task.category} key={uuid()} handleDelete={handleDelete} />
+      ))}
     </div>
   );
 }
