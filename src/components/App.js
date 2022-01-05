@@ -10,10 +10,6 @@ console.log({ CATEGORIES, TASKS });
 function App() {
   const [category, setCategory] = useState("All")
 
-  console.log(category)
-  console.log(TASKS)
-
-
   const displayedTasks = TASKS.filter(task => {
     if (category === "All") {
       return true
@@ -21,8 +17,6 @@ function App() {
       return task.category === category
     }
   })
-
-  console.log(displayedTasks)
 
   return (
     <div className="App">
