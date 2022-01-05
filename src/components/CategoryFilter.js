@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function CategoryFilter( {categories, selectedCategory, setCategory} ) {
+function CategoryFilter( {categories, selectedCategory, setCategory, setCategorizedTasks} ) {
   
 
   const buttons = categories.map(category => {

@@ -14,7 +14,7 @@ function TaskList( {tasks} ) {
 
   return (
     <div className="tasks">
-      {updatedTasks.map((task) => (
+      {tasks.map((task) => (
         <Task text={task.text} category={task.category} key={uuid()} handleDelete={handleDelete} />
       ))}
     </div>
