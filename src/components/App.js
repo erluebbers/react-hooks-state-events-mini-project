@@ -10,21 +10,11 @@ console.log({ CATEGORIES, TASKS });
 function App() {
   const [category, setCategory] = useState("All")
   const [tasks, setTasks] = useState([...TASKS])
-  const [newItem, setNewItem] = useState("")
-  const [newItemCategory, setNewItemCategory] =useState("Code")
 
-  function onTaskFormSubmit(event) {
-    event.preventDefault()
-    const addItem = [...tasks, {text: newItem, category: newItemCategory}]
+  function onTaskFormSubmit(obj) {
+    let {category, text} = obj
+    const addItem = [...tasks, {category: category, text: text, }]
     setTasks(addItem)
-  }
-
-  function handleNewItem(event) {
-    setNewItem(event.target.value)
-  }
-
-  function handleNewItemCategory(event) {
-    setNewItemCategory(event.target.value)
   }
 
   function handleDelete(text) {
@@ -46,10 +36,6 @@ function App() {
       <CategoryFilter categories={CATEGORIES} selectedCategory={category} setCategory={setCategory} />
       <NewTaskForm 
         categories={CATEGORIES}
-        newItem={newItem}
-        handleNewItem={handleNewItem}
-        newItemCategory={newItemCategory}
-        handleNewItemCategory={handleNewItemCategory}
         onTaskFormSubmit={onTaskFormSubmit}
         />
       <TaskList tasks={displayedTasks} handleDelete={handleDelete}/>
