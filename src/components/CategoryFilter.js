@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
-function CategoryFilter( {categories, selectedCategory, setCategory, setCategorizedTasks} ) {
+function CategoryFilter( {categories, selectedCategory, setCategory} ) {
   
-
   const buttons = categories.map(category => {
     const className = category === selectedCategory ? "selected" : null
 
